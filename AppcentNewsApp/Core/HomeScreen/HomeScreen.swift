@@ -39,13 +39,16 @@ final class HomeScreen: UIViewController{
 
         viewModel.delegate = self
         viewModel.viewDidload()
-       
+        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            self.view.endEditing(true)
         }
    
 }
 
 
 extension HomeScreen: HomeScreenDelegate{
+    
     func dismissEmtyStateView() {
         ANDismissEmptyStateView()
     }
@@ -143,6 +146,13 @@ extension HomeScreen: UITableViewDelegate, UITableViewDataSource{
             
             viewModel.nextPage()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let desVC = DetailScreen()
+        tableView.deselectRow(at: indexPath, animated: true)
+        desVC.article = viewModel.getArticleItem(at: indexPath.row)
+        navigationController?.pushViewController(desVC, animated: true)
     }
     
     

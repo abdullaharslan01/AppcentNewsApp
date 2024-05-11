@@ -11,7 +11,7 @@ class ANImageView: UIImageView {
     
     private var imageDownloadTask: URLSessionDataTask?
 
-    let placeholderImage = UIImage(named: ANImages.placeHolder)
+    let placeholderImage = UIImage(named: ANImages.emtyStateImage)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

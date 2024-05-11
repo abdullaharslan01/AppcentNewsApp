@@ -29,6 +29,9 @@
 		F59698712BEFCFA0000A1B19 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698702BEFCFA0000A1B19 /* UIViewController+Ext.swift */; };
 		F59698732BEFD4D0000A1B19 /* ANEmtyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698722BEFD4D0000A1B19 /* ANEmtyStateView.swift */; };
 		F59698752BEFD878000A1B19 /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698742BEFD878000A1B19 /* CGFloat+Ext.swift */; };
+		F59698792BEFE4B9000A1B19 /* DetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698782BEFE4B9000A1B19 /* DetailScreenViewModel.swift */; };
+		F596987B2BEFE514000A1B19 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596987A2BEFE514000A1B19 /* DetailScreen.swift */; };
+		F596987D2BEFEE2B000A1B19 /* ANItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596987C2BEFEE2B000A1B19 /* ANItemInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		F59698702BEFCFA0000A1B19 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		F59698722BEFD4D0000A1B19 /* ANEmtyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANEmtyStateView.swift; sourceTree = "<group>"; };
 		F59698742BEFD878000A1B19 /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		F59698782BEFE4B9000A1B19 /* DetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewModel.swift; sourceTree = "<group>"; };
+		F596987A2BEFE514000A1B19 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
+		F596987C2BEFEE2B000A1B19 /* ANItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANItemInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 			children = (
 				F59698442BEF6BF2000A1B19 /* Components */,
 				F59698432BEF6BEA000A1B19 /* FavoriteScreen */,
+				F59698762BEFE492000A1B19 /* DetailScreen */,
 				F59698422BEF6BDE000A1B19 /* HomeScreen */,
 			);
 			path = Core;
@@ -232,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				F59698722BEFD4D0000A1B19 /* ANEmtyStateView.swift */,
+				F596987C2BEFEE2B000A1B19 /* ANItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,6 +249,15 @@
 			children = (
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F59698762BEFE492000A1B19 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F59698782BEFE4B9000A1B19 /* DetailScreenViewModel.swift */,
+				F596987A2BEFE514000A1B19 /* DetailScreen.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,12 +335,15 @@
 				F59698552BEF6D7F000A1B19 /* NetworkManager.swift in Sources */,
 				F596986D2BEF9251000A1B19 /* HomeScreenViewModel.swift in Sources */,
 				F596986B2BEF8BFE000A1B19 /* ANTableViewCell.swift in Sources */,
+				F59698792BEFE4B9000A1B19 /* DetailScreenViewModel.swift in Sources */,
 				F596982D2BEF6AB4000A1B19 /* AppDelegate.swift in Sources */,
 				F59698592BEF7114000A1B19 /* ANTabbarController.swift in Sources */,
 				F596982F2BEF6AB4000A1B19 /* SceneDelegate.swift in Sources */,
 				F59698752BEFD878000A1B19 /* CGFloat+Ext.swift in Sources */,
 				F59698612BEF7801000A1B19 /* ANApiUrls.swift in Sources */,
+				F596987B2BEFE514000A1B19 /* DetailScreen.swift in Sources */,
 				F59698712BEFCFA0000A1B19 /* UIViewController+Ext.swift in Sources */,
+				F596987D2BEFEE2B000A1B19 /* ANItemInfoView.swift in Sources */,
 				F596985D2BEF71A4000A1B19 /* FavoriteVC.swift in Sources */,
 				F596985B2BEF7193000A1B19 /* HomeScreen.swift in Sources */,
 				F596985F2BEF75D5000A1B19 /* News.swift in Sources */,
