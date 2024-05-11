@@ -23,13 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             window?.makeKeyAndVisible()
            
-            configureNavigationBar()
             
         }
       
-        func configureNavigationBar(){
-            UINavigationBar.appearance().tintColor = .systemGreen
-        }
+       
 
 
    

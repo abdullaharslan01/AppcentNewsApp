@@ -9,5 +9,5 @@ import Foundation
 
 enum ANApiUrls{
     static let baseURL = "https://newsapi.org/v2/everything"
-    static let apiKEY  = "b8b942261e384cb781304e7295206214"
+    static let apiKEY  = "631b1de81b6e4773a6309a437ae1be54"
 }

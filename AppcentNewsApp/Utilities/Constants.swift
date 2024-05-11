@@ -27,6 +27,8 @@ enum ANColors{
     
 }
 
-enum ANSizes {
-    static let labelTitleSize = 26.0
+
+
+enum ANTexts{
+    static let searchBarText = "Search for news..."
 }

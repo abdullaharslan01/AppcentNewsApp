@@ -10,6 +10,8 @@ import UIKit
 class ANTabbarController: UITabBarController {
     override func viewDidLoad() {
         configureTabBarController()
+        UINavigationBar.appearance().tintColor = ANColors.mainColor
+        UITabBar.appearance().tintColor = ANColors.mainColor
     }
 
     
@@ -32,7 +34,6 @@ class ANTabbarController: UITabBarController {
         
    }
     func configureTabBarController() {
-        UITabBar.appearance().tintColor = ANColors.mainColor
          self.viewControllers = createTabViewControllers()
      }
     

@@ -20,7 +20,6 @@ class NetworkManager {
             completed(.failure(.invalidKeyword))
             return
         }
-        
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             
             if let _ = error {
@@ -43,10 +42,7 @@ class NetworkManager {
                 let decoder  = JSONDecoder()
                 
                 let articles = try decoder.decode(News.self, from: data)
-                
-                print(articles.articles?[0] ?? "Emty")
-                print(articles.totalResults ?? "0")
-                completed(.success(nil))
+                completed(.success(articles))
                 
                 
             }catch {

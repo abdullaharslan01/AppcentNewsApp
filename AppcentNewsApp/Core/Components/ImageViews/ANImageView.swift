@@ -24,7 +24,7 @@ class ANImageView: UIImageView {
     
 
     private func configure(){
-        layer.cornerRadius      = 10
+        layer.cornerRadius      = 5
         clipsToBounds           = true
         image                   = placeholderImage
         translatesAutoresizingMaskIntoConstraints = false

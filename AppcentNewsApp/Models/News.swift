@@ -15,7 +15,11 @@ struct News: Codable {
 }
 
 struct Article: Codable {
-    var source: Source
+    
+   
+   
+    
+    var source: Source?
     let author: String?
     let title: String?
     let description: String?
