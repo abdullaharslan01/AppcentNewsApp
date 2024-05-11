@@ -13,6 +13,18 @@ class HomeNewsVCViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+       
+        NetworkManager.shared.getNews(newsKeyword: "bes", page: 1) { result in
+            switch result {
+            case .success(let success):
+                print(success ?? "")
+                break
+            case .failure(let error):
+                print(error)
+                break
+            }
+        }
+       
     }
     
 

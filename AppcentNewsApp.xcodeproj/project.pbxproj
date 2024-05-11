@@ -20,6 +20,7 @@
 		F596985B2BEF7193000A1B19 /* HomeNewsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985A2BEF7193000A1B19 /* HomeNewsVCViewController.swift */; };
 		F596985D2BEF71A4000A1B19 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985C2BEF71A4000A1B19 /* FavoriteVC.swift */; };
 		F596985F2BEF75D5000A1B19 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985E2BEF75D5000A1B19 /* News.swift */; };
+		F59698612BEF7801000A1B19 /* ANApiUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698602BEF7801000A1B19 /* ANApiUrls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F596985A2BEF7193000A1B19 /* HomeNewsVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNewsVCViewController.swift; sourceTree = "<group>"; };
 		F596985C2BEF71A4000A1B19 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		F596985E2BEF75D5000A1B19 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		F59698602BEF7801000A1B19 /* ANApiUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANApiUrls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				F596984D2BEF6D34000A1B19 /* UIHelper.swift */,
 				F596984F2BEF6D3F000A1B19 /* Constants.swift */,
 				F59698512BEF6D57000A1B19 /* ANError.swift */,
+				F59698602BEF7801000A1B19 /* ANApiUrls.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				F596982D2BEF6AB4000A1B19 /* AppDelegate.swift in Sources */,
 				F59698592BEF7114000A1B19 /* ANTabbarController.swift in Sources */,
 				F596982F2BEF6AB4000A1B19 /* SceneDelegate.swift in Sources */,
+				F59698612BEF7801000A1B19 /* ANApiUrls.swift in Sources */,
 				F596985D2BEF71A4000A1B19 /* FavoriteVC.swift in Sources */,
 				F596985B2BEF7193000A1B19 /* HomeNewsVCViewController.swift in Sources */,
 				F596985F2BEF75D5000A1B19 /* News.swift in Sources */,
