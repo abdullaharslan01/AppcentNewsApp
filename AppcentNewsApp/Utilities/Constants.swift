@@ -15,6 +15,7 @@ enum ANSymbols {
 
 enum ANImages {
     static let placeHolder = "place-holder"
+    static let emtyStateImage = "emty-state"
 }
 
 enum ANColors{
@@ -31,4 +32,5 @@ enum ANColors{
 
 enum ANTexts{
     static let searchBarText = "Search for news..."
+    static let emttyPageText = "Please search for the news you want!"
 }

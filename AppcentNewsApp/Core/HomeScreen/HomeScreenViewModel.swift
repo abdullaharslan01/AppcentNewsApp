@@ -9,17 +9,23 @@ import Foundation
 
 
 protocol HomeScreenViewModelDelegate{
-    var delegate: HomeScreenDelegate? {get set}
-    func getArticles(keyword:String)
+    var  delegate: HomeScreenDelegate? {get set}
+    func getArticles()
     func articleNumberOfItemsInSection()->Int
     func getArticleItem(at index:Int)-> Article?
+    func nextPage()
+    func resetPageNumber()
+    func updateSearchKeyword(keyword: String)
+    
 }
 
 
 final class HomeScreenViewModel{
     weak var delegate:  HomeScreenDelegate?
-    private var page: Int           = 1
+    private var page: Int            = 1
+    private var searchKeyword        = ""
     private var articles: [Article]  = []
+    private var totalPageNumber      = 1
     var isSearching = false
 }
 
@@ -27,6 +33,21 @@ final class HomeScreenViewModel{
 
 
 extension HomeScreenViewModel: HomeScreenViewModelDelegate{
+    func updateSearchKeyword(keyword: String) {
+        
+        self.searchKeyword = keyword
+    }
+    
+    func nextPage() {
+        page += 1
+        getArticles()
+    }
+    
+    func resetPageNumber() {
+        page            = 1
+        totalPageNumber = 1
+    }
+    
     func getArticleItem(at index: Int) -> Article? {
         
         guard index >= 0 && index < articles.count else{return nil}
@@ -42,26 +63,43 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
     
     
     
-    func getArticles(keyword: String) {
     
-        NetworkManager.shared.getNews(newsKeyword: keyword, page: 1) {[weak self] result in
-            guard let self = self else {return}
+    func getArticles() {
+    
+        
+        if page <= totalPageNumber {
+            delegate?.dismissEmtyStateView()
+            delegate?.showLoadingView()
             
-            switch result {
+            NetworkManager.shared.getNews(newsKeyword: searchKeyword, page: page) {[weak self] result in
+                guard let self = self else {return}
                 
-            case .success(let news):
-                
-                guard let newArticles = news?.articles else {return}
-                
-                self.articles = newArticles
-                
-                delegate?.reloadTableView()
-                
-            case .failure(let failure):
-                print(failure.rawValue)
-                break
+                switch result {
+                    
+                case .success(let news):
+                    
+                    guard let news = news, let totalResult = news.totalResults, let articles = news.articles  else {return}
+                    self.totalPageNumber = totalResult / 100
+                    
+                    if self.isSearching {
+                        
+                        self.articles.removeAll()
+                    }
+                    
+                    
+                    self.isSearching = false
+                    self.articles.append(contentsOf: articles)
+                    delegate?.dismissLoadingView()
+                    delegate?.reloadTableView()
+                    
+                case .failure(let failure):
+                    print(failure.rawValue)
+                    break
+                }
             }
         }
+        
+        
         
         
         
@@ -73,6 +111,7 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
         delegate?.configureView()
         delegate?.configureTableView()
         delegate?.configureSearchBar()
+        delegate?.showEmtyStateView(message: ANTexts.emttyPageText)
         
     }
     

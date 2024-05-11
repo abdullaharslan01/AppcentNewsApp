@@ -14,6 +14,10 @@ protocol HomeScreenDelegate: AnyObject{
     func configureSearchBar()
     func nextPage()
     func reloadTableView()
+    func showLoadingView()
+    func dismissLoadingView()
+    func showEmtyStateView(message:String)
+    func dismissEmtyStateView()
     
 }
 
@@ -28,6 +32,7 @@ final class HomeScreen: UIViewController{
     private let viewModel = HomeScreenViewModel()
     
     private let articlesTableView: UITableView = UITableView()
+    private var articleSearchBar = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,13 +46,31 @@ final class HomeScreen: UIViewController{
 
 
 extension HomeScreen: HomeScreenDelegate{
+    func dismissEmtyStateView() {
+        ANDismissEmptyStateView()
+    }
     
-   
+    func showEmtyStateView(message: String) {
+        ANShowEmptyStateView(with: message, in: self.view)
+    }
+    
+    func showLoadingView() {
+        ANShowLoadingView()
+    }
+    
+    func dismissLoadingView() {
+        ANDismissLoadingView()
+    }
+    
     
     
     func reloadTableView() {
+        
         DispatchQueue.main.async {
+            self.articleSearchBar.dismiss(animated: true)
             self.articlesTableView.reloadData()
+
+            
         }
     }
    
@@ -64,12 +87,10 @@ extension HomeScreen: HomeScreenDelegate{
     }
     
     func configureSearchBar() {
-        let searchController                    = UISearchController()
-        searchController.searchBar.placeholder  = ANTexts.searchBarText
-        navigationItem.searchController         = searchController
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.delegate     = self
-
+        articleSearchBar.searchBar.placeholder  = ANTexts.searchBarText
+        articleSearchBar.obscuresBackgroundDuringPresentation = false
+        articleSearchBar.searchBar.delegate     = self
+        self.navigationItem.searchController         = articleSearchBar
        
         
     }
@@ -81,6 +102,7 @@ extension HomeScreen: HomeScreenDelegate{
     
     func configureView() {
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Appcent NewsApp"
 
     }
     
@@ -100,7 +122,28 @@ extension HomeScreen: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0.5
+        UIView.animate(withDuration: 1) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1
+        }
+    }
    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY         = scrollView.contentOffset.y
+        
+        let contentHeigh    = scrollView.contentSize.height
+        
+        let height          = scrollView.frame.size.height
+        
+        if offsetY > contentHeigh - height + 200 {
+            
+            viewModel.nextPage()
+        }
+    }
     
     
 }
@@ -111,8 +154,10 @@ extension HomeScreen: UISearchBarDelegate{
         guard let keyword = searchBar.text, !keyword.isEmpty else {
             return
         }
-        
-        viewModel.getArticles(keyword: keyword)
+        viewModel.isSearching = true
+        viewModel.resetPageNumber()
+        viewModel.updateSearchKeyword(keyword: keyword)
+        viewModel.getArticles()
     }
 
        
