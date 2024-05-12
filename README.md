@@ -5,7 +5,7 @@ The app is designed according to the MVVM (Model-View-ViewModel) architecture. T
 
 Users can access current news through the app, view news details, be directed to the source website, and save and share news articles. The app is designed to be modular and open to development, allowing it to adapt to future changes and updates.
 
-#### 🎬 For detailed information about the application, you can watch the video below.
+#### 🎬 For detailed information about the application, you can watch the video below. Enjoy the music 😊
 
 
 
