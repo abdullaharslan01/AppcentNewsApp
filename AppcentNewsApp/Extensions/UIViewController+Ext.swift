@@ -6,11 +6,30 @@
 //
 
 import UIKit
+import SafariServices
 
 fileprivate var containerView: UIView!
 
 extension UIViewController {
+    
+    
+    func ANShowAlert(title: String, message: String, buttonTitle: String = "OK") {
+        DispatchQueue.main.async {
+            
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: buttonTitle, style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+           
+       }
 
+    func ANPresentSafariVC(with url: URL) {
+          let safariVC = SFSafariViewController(url: url)
+          safariVC.preferredControlTintColor = .systemGreen
+          present(safariVC, animated: true)
+      }
     
     func ANDismissEmptyStateView() {
 

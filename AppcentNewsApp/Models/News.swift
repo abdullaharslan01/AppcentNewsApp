@@ -14,11 +14,8 @@ struct News: Codable {
     var articles: [Article]?
 }
 
-struct Article: Codable {
-    
+struct Article: Codable  {
    
-   
-    
     var source: Source?
     let author: String?
     let title: String?

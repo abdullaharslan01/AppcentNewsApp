@@ -12,12 +12,12 @@ protocol HomeScreenDelegate: AnyObject{
     func configureView()
     func configureTableView()
     func configureSearchBar()
-    func nextPage()
     func reloadTableView()
     func showLoadingView()
     func dismissLoadingView()
     func showEmtyStateView(message:String)
     func dismissEmtyStateView()
+    func showAlertMessage(title: String, message: String)
     
 }
 
@@ -40,6 +40,7 @@ final class HomeScreen: UIViewController{
         viewModel.delegate = self
         viewModel.viewDidload()
         }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             self.view.endEditing(true)
         }
@@ -48,6 +49,12 @@ final class HomeScreen: UIViewController{
 
 
 extension HomeScreen: HomeScreenDelegate{
+    
+    
+    func showAlertMessage(title: String, message: String) {
+        ANShowAlert(title: title , message: message)
+    }
+    
     
     func dismissEmtyStateView() {
         ANDismissEmptyStateView()
@@ -72,9 +79,9 @@ extension HomeScreen: HomeScreenDelegate{
         DispatchQueue.main.async {
             self.articleSearchBar.dismiss(animated: true)
             self.articlesTableView.reloadData()
-
-            
         }
+        
+
     }
    
     
@@ -92,15 +99,13 @@ extension HomeScreen: HomeScreenDelegate{
     func configureSearchBar() {
         articleSearchBar.searchBar.placeholder  = ANTexts.searchBarText
         articleSearchBar.obscuresBackgroundDuringPresentation = false
-        articleSearchBar.searchBar.delegate     = self
+        articleSearchBar.searchBar.delegate          = self
         self.navigationItem.searchController         = articleSearchBar
        
         
     }
     
-    func nextPage() {
-        
-    }
+    
     
     
     func configureView() {

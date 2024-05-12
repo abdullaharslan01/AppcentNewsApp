@@ -27,7 +27,7 @@ class ANTabbarController: UITabBarController {
     
     func createTabViewControllers() -> [UIViewController] {
         let homeNC    = createNavigationController(rootViewController: HomeScreen(), title: "News", imageName: ANSymbols.home, tag: 0)
-        let favoriteNC = createNavigationController(rootViewController: FavoriteVC(), title: "Favorites", imageName: ANSymbols.favorites, tag: 1)
+        let favoriteNC = createNavigationController(rootViewController: FavoriteScreen(), title: "Favorites", imageName: ANSymbols.favorites, tag: 1)
        
        return [homeNC, favoriteNC]
        

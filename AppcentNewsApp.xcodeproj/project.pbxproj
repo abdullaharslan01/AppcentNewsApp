@@ -18,7 +18,7 @@
 		F59698572BEF6D8B000A1B19 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698562BEF6D8B000A1B19 /* PersistanceManager.swift */; };
 		F59698592BEF7114000A1B19 /* ANTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698582BEF7114000A1B19 /* ANTabbarController.swift */; };
 		F596985B2BEF7193000A1B19 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985A2BEF7193000A1B19 /* HomeScreen.swift */; };
-		F596985D2BEF71A4000A1B19 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985C2BEF71A4000A1B19 /* FavoriteVC.swift */; };
+		F596985D2BEF71A4000A1B19 /* FavoriteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985C2BEF71A4000A1B19 /* FavoriteScreen.swift */; };
 		F596985F2BEF75D5000A1B19 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596985E2BEF75D5000A1B19 /* News.swift */; };
 		F59698612BEF7801000A1B19 /* ANApiUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698602BEF7801000A1B19 /* ANApiUrls.swift */; };
 		F59698632BEF857F000A1B19 /* ANTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698622BEF857F000A1B19 /* ANTitleLabel.swift */; };
@@ -32,6 +32,11 @@
 		F59698792BEFE4B9000A1B19 /* DetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698782BEFE4B9000A1B19 /* DetailScreenViewModel.swift */; };
 		F596987B2BEFE514000A1B19 /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596987A2BEFE514000A1B19 /* DetailScreen.swift */; };
 		F596987D2BEFEE2B000A1B19 /* ANItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596987C2BEFEE2B000A1B19 /* ANItemInfoView.swift */; };
+		F596987F2BF00621000A1B19 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F596987E2BF00621000A1B19 /* Date+Ext.swift */; };
+		F59698812BF0062C000A1B19 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698802BF0062C000A1B19 /* String+Ext.swift */; };
+		F59698842BF011EA000A1B19 /* ANButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59698832BF011EA000A1B19 /* ANButton.swift */; };
+		F59814CE2BF07FD5008D90F9 /* FavoriteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59814CD2BF07FD5008D90F9 /* FavoriteScreenViewModel.swift */; };
+		F59814D22BF08E0D008D90F9 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59814D12BF08E0D008D90F9 /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +53,7 @@
 		F59698562BEF6D8B000A1B19 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		F59698582BEF7114000A1B19 /* ANTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANTabbarController.swift; sourceTree = "<group>"; };
 		F596985A2BEF7193000A1B19 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		F596985C2BEF71A4000A1B19 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		F596985C2BEF71A4000A1B19 /* FavoriteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreen.swift; sourceTree = "<group>"; };
 		F596985E2BEF75D5000A1B19 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		F59698602BEF7801000A1B19 /* ANApiUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANApiUrls.swift; sourceTree = "<group>"; };
 		F59698622BEF857F000A1B19 /* ANTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ANTitleLabel.swift; path = ../../../../../ANTitleLabel.swift; sourceTree = "<group>"; };
@@ -62,6 +67,11 @@
 		F59698782BEFE4B9000A1B19 /* DetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewModel.swift; sourceTree = "<group>"; };
 		F596987A2BEFE514000A1B19 /* DetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		F596987C2BEFEE2B000A1B19 /* ANItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANItemInfoView.swift; sourceTree = "<group>"; };
+		F596987E2BF00621000A1B19 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		F59698802BF0062C000A1B19 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		F59698832BF011EA000A1B19 /* ANButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANButton.swift; sourceTree = "<group>"; };
+		F59814CD2BF07FD5008D90F9 /* FavoriteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteScreenViewModel.swift; sourceTree = "<group>"; };
+		F59814D12BF08E0D008D90F9 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +149,8 @@
 		F59698432BEF6BEA000A1B19 /* FavoriteScreen */ = {
 			isa = PBXGroup;
 			children = (
-				F596985C2BEF71A4000A1B19 /* FavoriteVC.swift */,
+				F596985C2BEF71A4000A1B19 /* FavoriteScreen.swift */,
+				F59814CD2BF07FD5008D90F9 /* FavoriteScreenViewModel.swift */,
 			);
 			path = FavoriteScreen;
 			sourceTree = "<group>";
@@ -161,6 +172,7 @@
 		F59698452BEF6C0A000A1B19 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				F59698832BF011EA000A1B19 /* ANButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -203,6 +215,8 @@
 			children = (
 				F59698702BEFCFA0000A1B19 /* UIViewController+Ext.swift */,
 				F59698742BEFD878000A1B19 /* CGFloat+Ext.swift */,
+				F596987E2BF00621000A1B19 /* Date+Ext.swift */,
+				F59698802BF0062C000A1B19 /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				F596985E2BEF75D5000A1B19 /* News.swift */,
+				F59814D12BF08E0D008D90F9 /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,10 +346,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59698632BEF857F000A1B19 /* ANTitleLabel.swift in Sources */,
+				F59814CE2BF07FD5008D90F9 /* FavoriteScreenViewModel.swift in Sources */,
 				F59698732BEFD4D0000A1B19 /* ANEmtyStateView.swift in Sources */,
 				F59698552BEF6D7F000A1B19 /* NetworkManager.swift in Sources */,
+				F596987F2BF00621000A1B19 /* Date+Ext.swift in Sources */,
 				F596986D2BEF9251000A1B19 /* HomeScreenViewModel.swift in Sources */,
 				F596986B2BEF8BFE000A1B19 /* ANTableViewCell.swift in Sources */,
+				F59814D22BF08E0D008D90F9 /* Favorite.swift in Sources */,
 				F59698792BEFE4B9000A1B19 /* DetailScreenViewModel.swift in Sources */,
 				F596982D2BEF6AB4000A1B19 /* AppDelegate.swift in Sources */,
 				F59698592BEF7114000A1B19 /* ANTabbarController.swift in Sources */,
@@ -344,12 +362,14 @@
 				F596987B2BEFE514000A1B19 /* DetailScreen.swift in Sources */,
 				F59698712BEFCFA0000A1B19 /* UIViewController+Ext.swift in Sources */,
 				F596987D2BEFEE2B000A1B19 /* ANItemInfoView.swift in Sources */,
-				F596985D2BEF71A4000A1B19 /* FavoriteVC.swift in Sources */,
+				F596985D2BEF71A4000A1B19 /* FavoriteScreen.swift in Sources */,
 				F596985B2BEF7193000A1B19 /* HomeScreen.swift in Sources */,
 				F596985F2BEF75D5000A1B19 /* News.swift in Sources */,
+				F59698812BF0062C000A1B19 /* String+Ext.swift in Sources */,
 				F596984E2BEF6D34000A1B19 /* UIHelper.swift in Sources */,
 				F59698502BEF6D3F000A1B19 /* Constants.swift in Sources */,
 				F59698692BEF876E000A1B19 /* ANImageView.swift in Sources */,
+				F59698842BF011EA000A1B19 /* ANButton.swift in Sources */,
 				F59698522BEF6D57000A1B19 /* ANError.swift in Sources */,
 				F59698572BEF6D8B000A1B19 /* PersistanceManager.swift in Sources */,
 				F59698672BEF86BF000A1B19 /* ANBodyLabel.swift in Sources */,
@@ -501,8 +521,8 @@
 				INFOPLIST_FILE = AppcentNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,8 +548,8 @@
 				INFOPLIST_FILE = AppcentNewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

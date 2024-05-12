@@ -93,12 +93,21 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
                     delegate?.reloadTableView()
                     
                 case .failure(let failure):
-                    print(failure.rawValue)
+                    self.delegate?.showAlertMessage(title: "Error", message: failure.rawValue)
+                    delegate?.dismissLoadingView()
+
                     break
                 }
+                
             }
+            
         }
-        
+        else{
+            delegate?.dismissLoadingView()
+            self.delegate?.showAlertMessage(title: "Warning", message: "The news you are looking for is out of news.")
+           
+
+        }
         
         
         
