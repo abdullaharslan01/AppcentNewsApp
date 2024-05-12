@@ -1,5 +1,5 @@
 # 📰 Appcent NewsApp
-#### This application is a news-sharing app developed for the Appcent internship application. The app is developed entirely programmatically using the Swift programming language, and only native libraries provided by Apple are used.
+#### This application is a news-sharing app developed for the Appcent internship application. The app is developed entirely programmatically. I did everything with Apple's own native library, without using any additional libraries.
 
 The app is designed according to the MVVM (Model-View-ViewModel) architecture. The Model represents the news data, the View creates the user interface and displays the news to the user, and the ViewModel communicates between the View and the Model, processes the news data, and prepares it for display in the View.
 
