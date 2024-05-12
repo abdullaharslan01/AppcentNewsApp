@@ -14,6 +14,9 @@ protocol FavoriteScreenViewModelDelegate{
     func articleNumberOfItemsInSection()-> Int
     func retriveFavorites()
     func reloadTableView()
+    func showEmptyState()
+    func dismissEmtypState()
+    func checkFavoriteCountState()
 }
 
 final class FavoriteScreenViewModel{
@@ -22,6 +25,27 @@ final class FavoriteScreenViewModel{
 }
 
 extension FavoriteScreenViewModel: FavoriteScreenViewModelDelegate{
+    func checkFavoriteCountState() {
+        if favoriteArticles.isEmpty {
+            
+            showEmptyState()
+        }
+        else{
+         dismissEmtypState()
+        }
+        
+    }
+    
+    func dismissEmtypState() {
+        delegate?.dismissEmtypState()
+    }
+    
+    func showEmptyState() {
+        delegate?.showEmtyState(message: ANTexts.emtyFavoritePageText)
+    }
+    
+  
+    
     func retriveFavorites() {
         delegate?.retrieveFavorites()
     }

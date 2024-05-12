@@ -30,8 +30,32 @@ class ANImageView: UIImageView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func animate1(to image: UIImage, duration: TimeInterval = 1.0) {
+        let newImageView = UIImageView(image: image)
+        newImageView.contentMode = self.contentMode
+        newImageView.frame = self.frame.offsetBy(dx: self.frame.width, dy: 0)
+        
+        superview?.addSubview(newImageView)
+        
+        UIView.animate(withDuration: duration, animations: {
+            newImageView.frame = self.frame
+            self.alpha = 0
+        }, completion: { _ in
+            self.image = image
+            self.alpha = 1
+            newImageView.removeFromSuperview()
+        })
+    }
+
+    func animate2(to image: UIImage, options: UIView.AnimationOptions = .transitionCrossDissolve) {
+        UIView.transition(with: self, duration: 1.0, options: options, animations: {
+            self.image = image
+        }, completion: nil)
+    }
+
+
     
-    func downloadImage(from urlString: String) {
+    func downloadImage(from urlString: String, animationState:Bool = false) {
         guard let url = URL(string: urlString) else {return}
         
         imageDownloadTask = URLSession.shared.dataTask(with: url, completionHandler: {[weak self] data, response, error in
@@ -46,7 +70,11 @@ class ANImageView: UIImageView {
             guard let image = UIImage(data: data) else {return}
             
             DispatchQueue.main.async {
-                self.image = image
+                
+            
+                animationState ? self.animate1(to: image) : self.animate2(to: image)
+                
+                
             }
             
         }

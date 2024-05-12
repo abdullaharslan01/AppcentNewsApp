@@ -16,6 +16,10 @@ struct Favorite: Hashable, Codable{
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+    init(id: UUID = UUID(), article: Article? = nil) {
+        self.id = id
+        self.article = article
+    }
     
     
     var id = UUID()

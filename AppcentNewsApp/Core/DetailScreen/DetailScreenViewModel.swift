@@ -11,6 +11,7 @@ protocol DetailScreenViewModelDelegate{
     var delegate: DetailScreenDelegate? {get set}
     func viewDidLoad()
     func favoriteArticle(article: Article?)
+    
 }
 
 
@@ -22,6 +23,8 @@ final class DetailScreenViewModel {
 
 
 extension DetailScreenViewModel: DetailScreenViewModelDelegate{
+    
+    
     func favoriteArticle(article: Article?) {
         guard let article = article else {return}
         

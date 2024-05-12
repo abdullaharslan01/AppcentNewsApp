@@ -12,6 +12,8 @@ protocol FavoriteScreenDelegate: AnyObject{
     func configureTableView()
     func retrieveFavorites()
     func reloadTableView()
+    func showEmtyState(message: String)
+    func dismissEmtypState()
 }
 
 final class FavoriteScreen: UIViewController {
@@ -29,6 +31,9 @@ final class FavoriteScreen: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.retriveFavorites()
+        viewModel.checkFavoriteCountState()
+       
+        
     }
 
     
@@ -36,6 +41,16 @@ final class FavoriteScreen: UIViewController {
 }
 
 extension FavoriteScreen: FavoriteScreenDelegate{
+  
+    
+    func dismissEmtypState() {
+        self.ANDismissEmptyStateView()
+    }
+    
+    func showEmtyState(message: String) {
+        self.ANShowEmptyStateView(with: message, in: self.view)
+    }
+    
     func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.favoriteTableView.reloadData()
@@ -54,7 +69,8 @@ extension FavoriteScreen: FavoriteScreenDelegate{
                 
                 
                 break
-            case .failure(let failure):
+            case .failure(_):
+                
                 break
             }
         }
@@ -76,6 +92,8 @@ extension FavoriteScreen: FavoriteScreenDelegate{
     
     func vieewDidload() {
         view.backgroundColor = .systemBackground
+        navigationItem.title =  ANTexts.favoriteScreenTitle
+
         retrieveFavorites()
         
     
@@ -98,7 +116,7 @@ extension FavoriteScreen: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Remove") { [weak self] contextActuon, view, state in
+        let deleteAction = UIContextualAction(style: .destructive, title: ANTexts.removeButtonTitle) { [weak self] contextActuon, view, state in
             
             let favorite = self?.viewModel.favoriteArticles[indexPath.row]
             self?.viewModel.favoriteArticles.remove(at: indexPath.row)
@@ -107,11 +125,12 @@ extension FavoriteScreen: UITableViewDelegate, UITableViewDataSource{
             
             PersistanceManager.updeteWith(favorite: favorite, actionType: .remove) { error in
                 if let error = error {
-                    self?.ANShowAlert(title: "Something went wrong", message: error.rawValue)
+                    self?.ANShowAlert(title: ANTexts.somethingWrong, message: error.rawValue)
                 }
-                
+                self?.viewModel.checkFavoriteCountState()
             }
         }
+     
         
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
@@ -123,6 +142,7 @@ extension FavoriteScreen: UITableViewDelegate, UITableViewDataSource{
         let desVC = DetailScreen()
         tableView.deselectRow(at: indexPath, animated: true)
         desVC.article = viewModel.getArticleItem(at: indexPath.row)
+        desVC.isFavorite = true
         navigationController?.pushViewController(desVC, animated: true)
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

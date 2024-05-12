@@ -11,6 +11,9 @@ import UIKit
 enum ANSymbols {
     static let home = "house.fill"
     static let favorites = "heart"
+    static let favoritesFill = "heart.fill"
+    static let person = "person"
+    static let calendar = "calendar"
 }
 
 enum ANImages {
@@ -31,6 +34,16 @@ enum ANColors{
 
 
 enum ANTexts{
-    static let searchBarText = "Search for news..."
-    static let emttyPageText = "Please search for the news you want!"
+    static let ANButtonTitle          = "News Source"
+    static let removeButtonTitle      = "Remove"
+    static let userShareTitle         = "Hey look this news:"
+    static let somethingWrong         = "Something went wrong"
+    static let error                  = "Error"
+    static let warning                = "Warning"
+    static let searchBarText          = "Search for news..."
+    static let emtyPageText           = "Please search for the news you want!"
+    static let emtyFavoritePageText   = "There is no news you have added to your favorites."
+    static let homeScreenTitle        = "Appcent NewsApp"
+    static let favoriteScreenTitle    = "Favorites"
+    static let outOfNewsText          = "That's all! There are no more news available at the moment. You can make a more specific search or try again later."
 }

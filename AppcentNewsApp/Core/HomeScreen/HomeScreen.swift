@@ -27,12 +27,13 @@ final class HomeScreen: UIViewController{
     
   
 
-    enum Section{case main}
     
     private let viewModel = HomeScreenViewModel()
     
     private let articlesTableView: UITableView = UITableView()
     private var articleSearchBar = UISearchController()
+    
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,9 @@ extension HomeScreen: HomeScreenDelegate{
     
     
     func configureTableView() {
+        refreshControl.addTarget(self, action: #selector(refreshScreen), for: .valueChanged)
+        articlesTableView.addSubview(refreshControl)
+        
         articlesTableView.register(ANTableViewCell.self, forCellReuseIdentifier: ANTableViewCell.reuseID)
         view.addSubview(articlesTableView)
         articlesTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +98,18 @@ extension HomeScreen: HomeScreenDelegate{
         articlesTableView.rowHeight  = 120
         articlesTableView.delegate   = self
         articlesTableView.dataSource = self
+        
+    }
+    
+    @objc func refreshScreen(send: UIRefreshControl){
+        
+        DispatchQueue.main.async {
+            send.endRefreshing()
+            self.viewModel.getArticles()
+            
+        }
+        
+
     }
     
     func configureSearchBar() {
@@ -110,7 +126,7 @@ extension HomeScreen: HomeScreenDelegate{
     
     func configureView() {
         view.backgroundColor = .systemBackground
-        navigationItem.title = "Appcent NewsApp"
+        navigationItem.title =  ANTexts.homeScreenTitle
 
     }
     
@@ -152,6 +168,8 @@ extension HomeScreen: UITableViewDelegate, UITableViewDataSource{
             viewModel.nextPage()
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let desVC = DetailScreen()

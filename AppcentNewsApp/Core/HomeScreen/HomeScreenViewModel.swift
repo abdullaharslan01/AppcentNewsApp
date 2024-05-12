@@ -33,10 +33,12 @@ final class HomeScreenViewModel{
 
 
 extension HomeScreenViewModel: HomeScreenViewModelDelegate{
+ 
+    
     func updateSearchKeyword(keyword: String) {
         
         self.searchKeyword = keyword
-    }
+        }
     
     func nextPage() {
         page += 1
@@ -70,6 +72,7 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
         if page <= totalPageNumber {
             delegate?.dismissEmtyStateView()
             delegate?.showLoadingView()
+
             
             NetworkManager.shared.getNews(newsKeyword: searchKeyword, page: page) {[weak self] result in
                 guard let self = self else {return}
@@ -93,7 +96,7 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
                     delegate?.reloadTableView()
                     
                 case .failure(let failure):
-                    self.delegate?.showAlertMessage(title: "Error", message: failure.rawValue)
+                    self.delegate?.showAlertMessage(title: ANTexts.error, message: failure.rawValue)
                     delegate?.dismissLoadingView()
 
                     break
@@ -104,7 +107,7 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
         }
         else{
             delegate?.dismissLoadingView()
-            self.delegate?.showAlertMessage(title: "Warning", message: "The news you are looking for is out of news.")
+            self.delegate?.showAlertMessage(title: ANTexts.warning, message: ANTexts.outOfNewsText)
            
 
         }
@@ -120,7 +123,7 @@ extension HomeScreenViewModel: HomeScreenViewModelDelegate{
         delegate?.configureView()
         delegate?.configureTableView()
         delegate?.configureSearchBar()
-        delegate?.showEmtyStateView(message: ANTexts.emttyPageText)
+        delegate?.showEmtyStateView(message: ANTexts.emtyPageText)
         
     }
     

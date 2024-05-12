@@ -19,25 +19,23 @@ final class DetailScreen: UIViewController {
     var viewModel = DetailScreenViewModel()
     var article: Article?
     
-    var imageView    = ANImageView(frame: .zero)
-    var titleLabel   = ANTitleLabel(textAlignment: .left, fontsize: 20)
-    var contentLabel = ANBodyLabel(textAligment: .left)
-    let scroolView   = UIScrollView()
-    let stackView    = UIStackView()
-    let infos        = UIStackView()
-    let item1        = ANItemInfoView(frame: .zero)
-    let item2        = ANItemInfoView(frame: .zero)
-    let toolBar      =  UIView()
+    var imageView        = ANImageView(frame: .zero)
+    var titleLabel       = ANTitleLabel(textAlignment: .left, fontsize: 20)
+    var contentLabel     = ANBodyLabel(textAligment: .left)
+    let scroolView       = UIScrollView()
+    let stackView        = UIStackView()
+    let infos            = UIStackView()
+    let item1            = ANItemInfoView(frame: .zero)
+    let item2            = ANItemInfoView(frame: .zero)
     
-    let newsSourceButton = ANButton(title: "News Source")
+    let toolBar          =  UIView()
+    var isFavorite:Bool  = false
+    let newsSourceButton = ANButton(title: ANTexts.ANButtonTitle)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.viewDidLoad()
-
-
-        
     }
     
 
@@ -106,23 +104,25 @@ extension DetailScreen: DetailScreenDelegate{
         imageView.clipsToBounds = true
         
         guard let article = article else {return}
-        item1.set(itemLogo: "person", itemText: article._author)
-        item2.set(itemLogo: "calendar", itemText: article._publishedAt.contvertToDisplayFormat())
+        item1.set(itemLogo: ANSymbols.person, itemText: article._author)
+        item2.set(itemLogo: ANSymbols.calendar, itemText: article._publishedAt.contvertToDisplayFormat())
 
         contentLabel.text = article._content
         titleLabel.text   = article._title
         titleLabel.numberOfLines  = 0
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: 16)
-        imageView.downloadImage(from: article._urlToImage)
+        imageView.downloadImage(from: article._urlToImage,animationState: true)
     }
     
     func viewDidload() {
         view.backgroundColor = .systemBackground
     
+        let favoriteImage = UIImage(systemName: isFavorite ? ANSymbols.favoritesFill : ANSymbols.favorites)
+        
         navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let shareButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-        let favoriteButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favoriteTapped))
+        let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(favoriteTapped))
            
            navigationItem.rightBarButtonItems = [favoriteButton, shareButton]
         
@@ -157,18 +157,30 @@ extension DetailScreen: DetailScreenDelegate{
            
        }
        
-       let message = "Hey look this news:\n\(article._title): \(article._content)\n \(article._url)"
+       let message = "\(ANTexts.userShareTitle)\n\(article._title): \(article._content)\n \(article._url)"
 
        
        let activetyController = UIActivityViewController(activityItems: [message,], applicationActivities: nil)
        present(activetyController, animated: true)
-
-       
        
    }
 
    @objc func favoriteTapped() {
-       viewModel.favoriteArticle(article: article)
+    
+       isFavorite.toggle()
+       
+       if isFavorite {
+           navigationItem.rightBarButtonItems?[0].image = UIImage(systemName: ANSymbols.favoritesFill)
+                
+           guard let article = article else {return}
+           viewModel.favoriteArticle(article: article)
+           
+          } else {
+              navigationItem.rightBarButtonItems?[0].image = UIImage(systemName: ANSymbols.favorites)
+              
+             
+              
+          }
        
    }
     
